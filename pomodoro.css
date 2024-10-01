@@ -53,10 +53,12 @@ footer>p{
     height: 200px;
     text-align: center;
     margin: auto;
+    margin-top: 10vh;
   }
 
 h1{
     text-align: center;
+    text-decoration: underline;
 }
 
 #timerView{
@@ -68,4 +70,14 @@ h1{
 #start #reStart{
     text-align: center;
     margin: auto;
+}
+
+h2 {
+    width: 20%;
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: lightblue;
+    border-radius: 20px;
+    border: solid white;
 }

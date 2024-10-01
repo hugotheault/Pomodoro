@@ -21,6 +21,8 @@ let buttonReStart = document.getElementById("reStart");
 
 let bg = document.querySelector("html");
 
+let phase = document.getElementById("phase");
+
 // Premier affichage du timer
 Timer.textContent = caractere(MINUTETRAVAIL)+" : "+caractere(SECONDTRAVAIL);
 
@@ -33,6 +35,7 @@ buttonStart.addEventListener('click', ()=>{
     buttonStart.style.display="none";
     buttonReStart.style.display="inline-block";
     bar.animate(1.0);
+    phase.textContent = "Travail";
 });
 
 // Listenner sur le bouton reStart afin de reload la page web
@@ -58,12 +61,11 @@ function timer(){
         m = MINUTEPAUSE;
         s = SECONDPAUSE;
         bg.style.backgroundColor="#8fdd57";
-        bar.duration = 200;
-        bar.animate(0.1);
-        
+        bar.duration = 20;
+        bar.animate(-1);
         bar.duration = (MINUTEPAUSE*60+SECONDPAUSE)*1000;
-        
         bar.animate(1.0);
+        phase.textContent = "Pause";
         // bar.animate(1.0);
     }else if(m == 0 && s == 0 && travail == false){
         travail = true;
@@ -74,6 +76,7 @@ function timer(){
         bar.duration = (MINUTETRAVAIL*60+SECONDTRAVAIL)*1000;
         bar.location = 0;
         bar.animate(1.0);
+        phase.textContent = "Travail";
     }
 
 }
@@ -95,7 +98,3 @@ var bar = new ProgressBar.Circle(container, {
     svgStyle: null
   });
 
-  bar.timerBack = 100;
-  
-  
-  
