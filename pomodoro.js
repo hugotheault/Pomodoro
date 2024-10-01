@@ -1,16 +1,18 @@
+// Définition des différents constantes utilisés
 const MINUTETRAVAIL = 0;
 const SECONDTRAVAIL = 5;
 
 const MINUTEPAUSE = 0;
 const SECONDPAUSE = 2;
 
+// Définition des différentes variables
 let m = MINUTETRAVAIL;
 let s = SECONDTRAVAIL;
 
 let travail = true;
 
 let Timer = document.getElementById("timer");
-Timer.textContent = caractere(MINUTETRAVAIL)+" : "+caractere(SECONDTRAVAIL);
+
 
 let timerIntervalle;
 
@@ -19,6 +21,11 @@ let buttonReStart = document.getElementById("reStart");
 
 let bg = document.querySelector("html");
 
+// Premier affichage du timer
+Timer.textContent = caractere(MINUTETRAVAIL)+" : "+caractere(SECONDTRAVAIL);
+
+// Listenner sur le bouton start afin de lancer le timer
+//et donc les cycles de travail
 buttonStart.addEventListener('click', ()=>{
     if(timerIntervalle == null){
         timerIntervalle = setInterval(timer, 1000);
@@ -28,13 +35,16 @@ buttonStart.addEventListener('click', ()=>{
     bar.animate(1.0);
 });
 
+// Listenner sur le bouton reStart afin de reload la page web
 buttonReStart.addEventListener('click', ()=>{
-    timerBack();
+    location.reload();
 });
 
-
+// Fonction timer, lancée dès que l'utilisateur appuie sur le bouton
+// start, qui permet donc le défilement du temps ainsi que les changements
+// entre les phases de travail et les phases de pause
 function timer(){
-    console.log(m,s)
+    console.log(m,s);
     if(s== 0){
         m-= 1;
         s= 59;
@@ -68,15 +78,14 @@ function timer(){
 
 }
 
-function timerBack(){
-    location.reload();
-}
-
+// Fontion permettant l'ajout d'un '0' au début si le nombre de minutes
+// ou de secondes restantes est inférieur à 10
 function caractere(nb)
 { 
     return (nb < 10) ? '0'+nb : nb;
 }
 
+// Création de la progress bar
 var bar = new ProgressBar.Circle(container, {
     strokeWidth: 3,
     duration: (MINUTETRAVAIL*60+SECONDTRAVAIL)*1000,
