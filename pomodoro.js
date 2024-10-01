@@ -1,9 +1,9 @@
 // Définition des différents constantes utilisés
-const MINUTETRAVAIL = 0;
-const SECONDTRAVAIL = 5;
+const MINUTETRAVAIL = 25;
+const SECONDTRAVAIL = 0;
 
-const MINUTEPAUSE = 0;
-const SECONDPAUSE = 2;
+const MINUTEPAUSE = 5;
+const SECONDPAUSE = 0;
 
 // Définition des différentes variables
 let m = MINUTETRAVAIL;
